@@ -1,5 +1,9 @@
 <p align="center">
-   <h1>DiffRhythm: Blazingly Fast and Embarrassingly Simple</br>End-to-End Full-Length Song Generation with Latent Diffusion</h1>
+    <img src="src/DiffRhythm_logo.jpg" width="400"/>
+<p>
+
+<p align="center">
+   <h1>Di♪♪Rhythm: Blazingly Fast and Embarrassingly Simple</br>End-to-End Full-Length Song Generation with Latent Diffusion</h1>
 </p>
 
 Ziqian Ning, Huakang Chen, Yuepeng Jiang, Chunbo Hao, Guobin Ma, Shuai Wang, Jixun Yao, Lei Xie†
