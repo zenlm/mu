@@ -63,6 +63,7 @@ if __name__ == "__main__":
     parser.add_argument('--lrc-path', type=str, default="infer/example/eg.lrc", help="lyrics of target song") # lyrics of target song
     parser.add_argument('--ref-audio-path', type=str, default="infer/example/eg.mp3", help="reference audio as style prompt for target song") # reference audio as style prompt for target song
     parser.add_argument('--audio-length', type=int, default=95, choices=[95], help="length of generated song") # length of target song
+    parser.add_argument('--repo_id', type=str, default="ASLP-lab/DiffRhythm-base", help="target model")
     parser.add_argument('--output-dir', type=str, default="infer/example/output", help="output directory fo generated song") # output directory fo target song
     args = parser.parse_args()
     

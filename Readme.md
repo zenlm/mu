@@ -29,6 +29,7 @@ DiffRhythm (Chinese: 谛韵, Dì Yùn) is the ***first*** open-sourced diffusion
 - [ ] Support local deployment.
 - [ ] Support Colab.
 - [ ] Support Docker.
+- [ ] Release training code.
 - [x] Release paper to Arxiv.
 - [x] Online serving on huggingface space.
 
@@ -39,6 +40,20 @@ DiffRhythm (Chinese: 谛韵, Dì Yùn) is the ***first*** open-sourced diffusion
 | DiffRhythm-base (1m35s)  | https://huggingface.co/ASLP-lab/DiffRhythm-base |
 | DiffRhythm-full (4m45s)  | Coming soon... |
 | DiffRhythm-vae  | https://huggingface.co/ASLP-lab/DiffRhythm-vae |
+
+## Inference
+
+You can simply use the inference script:
+```bash
+bash script/infer.sh 
+```
+Example files of lrc and reference audio can be found in `infer/example`.
+
+BTW, DiffRhythm-base only supports the generation of only 95 seconds of music. We will later release DiffRhythm-full to generate 285 seconds.
+
+## Training
+
+Coming soon...
 
 
 ## License & Disclaimer

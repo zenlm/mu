@@ -80,9 +80,9 @@ def decode_audio(latents, vae_model, chunked=False, overlap=32, chunk_size=128):
             y_final[:,:,t_start:t_end] = y_chunk[:,:,chunk_start:chunk_end]
         return y_final
 
-def prepare_model(device):
+def prepare_model(device, repo_id="ASLP-lab/DiffRhythm-base"):
     # prepare cfm model
-    dit_ckpt_path = hf_hub_download(repo_id="ASLP-lab/DiffRhythm-base", filename="cfm_model.pt", cache_dir="./pretrained")
+    dit_ckpt_path = hf_hub_download(repo_id=repo_id, filename="cfm_model.pt", cache_dir="./pretrained")
     dit_config_path = "./config/diffrhythm-1b.json"
     with open(dit_config_path) as f:
         model_config = json.load(f)
