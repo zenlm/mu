@@ -26,9 +26,9 @@ DiffRhythm (Chinese: 谛韵, Dì Yùn) is the ***first*** open-sourced diffusion
 ### 2025.3.4 🔥 We released the [DiffRhythm paper](https://arxiv.org/abs/2503.01183) and [Huggingface Space demo](https://huggingface.co/spaces/ASLP-lab/DiffRhythm).
 
 ## TODOs
-- [ ] Support local deployment:
-- [ ] Support Colab:
-- [ ] Support Docker:
+- [ ] Support local deployment.
+- [ ] Support Colab.
+- [ ] Support Docker.
 - [x] Release paper to Arxiv.
 - [x] Online serving on huggingface space.
 
@@ -50,7 +50,7 @@ DiffRhythm enables the creation of original music across diverse genres, support
 ## Citation
 ```
 @article{ning2025diffrhythm,
-  title={{DiffRhythm}: Blazingly Fast and Embarrassingly Simple</br>End-to-End Full-Length Song Generation with Latent Diffusion<},
+  title={{DiffRhythm}: Blazingly Fast and Embarrassingly Simple End-to-End Full-Length Song Generation with Latent Diffusion},
   author={Ziqian, Ning and Huakang, Chen and Yuepeng, Jiang and Chunbo, Hao and Guobin, Ma and Shuai, Wang and Jixun, Yao and Lei, Xie},
   journal={arXiv preprint arXiv:2503.01183},
   year={2025}
