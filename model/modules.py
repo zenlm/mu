@@ -45,7 +45,6 @@ class FiLMLayer(nn.Module):
         gamma, beta = torch.chunk(self.film(c.unsqueeze(2)), chunks=2, dim=1)
         gamma = gamma.transpose(1, 2)
         beta = beta.transpose(1, 2)
-        # print(gamma.shape, beta.shape)
         return gamma * x + beta
 
 # raw wav to mel spec
