@@ -43,18 +43,42 @@ DiffRhythm (Chinese: 谛韵, Dì Yùn) is the ***first*** open-sourced diffusion
 
 ## Inference
 
-You can simply use the inference script:
+Following the steps below to clone the repository and install the environment.
+
+```bash 
+# clone and enter the repositry
+git clone https://github.com/ASLP-lab/DiffRhythm.git
+cd DiffRhythm
+
+# install the environment
+
+## espeak-ng
+# For Debian-like distribution (e.g. Ubuntu, Mint, etc.)
+sudo apt-get install espeak-ng
+# For RedHat-like distribution (e.g. CentOS, Fedora, etc.) 
+sudo yum install espeak-ng
+# For Windows
+# Please visit https://github.com/espeak-ng/espeak-ng/releases to download .msi installer
+
+## python environment
+conda create -n diffrhythm python=3.10
+conda activate diffrhythm
+pip install -r requirements.txt
+```
+
+Now, you can simply use the inference script:
 ```bash
 bash script/infer.sh 
 ```
 Example files of lrc and reference audio can be found in `infer/example`.
 
-BTW, DiffRhythm-base only supports the generation of only 95 seconds of music. We will later release DiffRhythm-full to generate 285 seconds.
+You can use [the tools](https://huggingface.co/spaces/ASLP-lab/DiffRhythm) we provide on huggingface to generate the lrc
+
+**Note that DiffRhythm-base requires a minimum of 8G of VRAM**
 
 ## Training
 
 Coming soon...
-
 
 ## License & Disclaimer
 
