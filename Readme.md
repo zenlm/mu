@@ -75,13 +75,13 @@ pip install -r requirements.txt
 
 Now, you can simply use the inference script:
 ```bash
-bash script/infer.sh 
+bash scripts/infer.sh 
 ```
 Example files of lrc and reference audio can be found in `infer/example`.
 
 You can use [the tools](https://huggingface.co/spaces/ASLP-lab/DiffRhythm) we provide on huggingface to generate the lrc
 
-**Note that DiffRhythm-base requires a minimum of 8G of VRAM**
+**Note that DiffRhythm-base requires a minimum of 8G of VRAM. To meet the 8G VRAM requirement, ensure `chunked=True` is set in the `decode_audio` function during inference. Higher VRAM may be required if chunked decoding is disabled.**
 
 ## Training
 
