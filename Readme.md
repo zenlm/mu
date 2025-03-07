@@ -11,10 +11,10 @@ Ziqian Ning, Huakang Chen, Yuepeng Jiang, Chunbo Hao, Guobin Ma, Shuai Wang, Jix
 <p align="center">
  <a href="https://huggingface.co/spaces/ASLP-lab/DiffRhythm"> Huggingface Space Demo</a> </a>&nbsp
 <br>
-📑 <a href="https://arxiv.org/abs/2503.01183">Paper</a> &nbsp&nbsp | &nbsp&nbsp 📑 <a href="https://aslp-lab.github.io/DiffRhythm.github.io/">Demo</a> &nbsp&nbsp | &nbsp&nbsp 💬 <a href="src/contact.md">WeChat (微信)</a>&nbsp&nbsp 
+📑 <a href="https://arxiv.org/abs/2503.01183">Paper</a> &nbsp&nbsp | &nbsp&nbsp 📑 <a href="https://aslp-lab.github.io/DiffRhythm.github.io/">Demo</a> &nbsp&nbsp | &nbsp&nbsp 💬 <a href="src/contact.md">WeChat (微信)</a>&nbsp&nbsp
 </p>
 
-DiffRhythm (Chinese: 谛韵, Dì Yùn) is the ***first*** open-sourced diffusion-based song generation model that is capable of creating full-length songs. The name combines "Diff" (referencing its diffusion architecture) with "Rhythm" (highlighting its focus on music and song creation). The Chinese name 谛韵 (Dì Yùn) phonetically mirrors "DiffRhythm", where "谛" (attentive listening) symbolizes auditory perception, and "韵" (melodic charm) represents musicality.
+DiffRhythm (Chinese: 谛韵, Dì Yùn) is the ***first*** open-sourced diffusion-based music generation model that is capable of creating full-length songs. The name combines "Diff" (referencing its diffusion architecture) with "Rhythm" (highlighting its focus on music and song creation). The Chinese name 谛韵 (Dì Yùn) phonetically mirrors "DiffRhythm", where "谛" (attentive listening) symbolizes auditory perception, and "韵" (melodic charm) represents musicality.
 
 
 <p align="center">
@@ -23,15 +23,22 @@ DiffRhythm (Chinese: 谛韵, Dì Yùn) is the ***first*** open-sourced diffusion
 
 ## News and Updates
 
-### 2025.3.4 🔥 We released the [DiffRhythm paper](https://arxiv.org/abs/2503.01183) and [Huggingface Space demo](https://huggingface.co/spaces/ASLP-lab/DiffRhythm).
+* 📌 Join Us on Discord! [![Discord](https://dcbadge.limes.pink/api/server/https://discord.gg/q4T7nTdd)](https://discord.gg/q4T7nTdd)
+
+* **2025.3.7 🔥** **DiffRhythm** is now officially licensed under the **Apache 2.0 License**! 🎉 As the first diffusion-based music generation model, DiffRhythm opens up exciting new possibilities for AI-driven creativity in music. Whether you're a researcher, developer, or music enthusiast, we invite you to explore, innovate, and build upon this foundation. 
+
+* **2025.3.6 🔥** The local deployment guide is now available.
+
+* **2025.3.4 🔥** We released the [DiffRhythm paper](https://arxiv.org/abs/2503.01183) and [Huggingface Space demo](https://huggingface.co/spaces/ASLP-lab/DiffRhythm).
 
 ## TODOs
-- [ ] Support local deployment.
+- [ ] Release DiffRhythm-full.
 - [ ] Support Colab.
 - [ ] Support Docker.
 - [ ] Release training code.
+- [x] Support local deployment.
 - [x] Release paper to Arxiv.
-- [x] Online serving on huggingface space.
+- [x] Online serving on Hugging Face Space.
 
 ## Model Versions
 
@@ -82,7 +89,9 @@ Coming soon...
 
 ## License & Disclaimer
 
-As the VAE is fine-tuned from [Stable Audio Open](https://huggingface.co/stabilityai/stable-audio-open-1.0), DiffRhythm is subject to the [Stability AI Community License Agreement](LICENSE.md)
+DiffRhythm (code and DiT weights) is released under the [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0). This open-source license allows you to freely use, modify, and distribute the model, as long as you include the appropriate copyright notice and disclaimer.
+
+We do not make any profit from this model. Our goal is to provide a high-quality base model for music generation, fostering innovation in AI music and contributing to the advancement of human creativity. We hope that DiffRhythm will serve as a foundation for further research and development in the field of AI-generated music.
 
 DiffRhythm enables the creation of original music across diverse genres, supporting applications in artistic creation, education, and entertainment. While designed for positive use cases, potential risks include unintentional copyright infringement through stylistic similarities, inappropriate blending of cultural musical elements, and misuse for generating harmful content. To ensure responsible deployment, users must implement verification mechanisms to confirm musical originality, disclose AI involvement in generated works, and obtain permissions when adapting protected styles.
 
