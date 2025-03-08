@@ -10,4 +10,5 @@ python3 infer/infer.py \
     --ref-prompt "classical genres, hopeful mood, piano." \
     --audio-length 95 \
     --repo_id ASLP-lab/DiffRhythm-base \
-    --output-dir infer/example/output
+    --output-dir infer/example/output \
+    --chunked

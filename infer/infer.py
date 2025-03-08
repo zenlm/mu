@@ -43,6 +43,7 @@ def inference(
     style_prompt,
     negative_style_prompt,
     start_time,
+    chunked=False,
 ):
     with torch.inference_mode():
         generated, _ = cfm_model.sample(
@@ -59,7 +60,7 @@ def inference(
         generated = generated.to(torch.float32)
         latent = generated.transpose(1, 2)  # [b d t]
 
-        output = decode_audio(latent, vae_model, chunked=False)
+        output = decode_audio(latent, vae_model, chunked=chunked)
 
         # Rearrange audio batch to a single sequence
         output = rearrange(output, "b d n -> d (b n)")
@@ -96,6 +97,11 @@ if __name__ == "__main__":
         help="reference audio as style prompt for target song",
         required=False,
     )  # reference audio as style prompt for target song
+    parser.add_argument(
+        "--chunked",
+        action="store_true",
+        help="whether to use chunked decoding",
+    )  # whether to use chunked decoding
     parser.add_argument(
         "--audio-length",
         type=int,
@@ -156,6 +162,7 @@ if __name__ == "__main__":
         style_prompt=style_prompt,
         negative_style_prompt=negative_style_prompt,
         start_time=start_time,
+        chunked=args.chunked,
     )
     e_t = time.time() - s_t
     print(f"inference cost {e_t} seconds")
