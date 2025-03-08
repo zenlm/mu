@@ -75,8 +75,15 @@ pip install -r requirements.txt
 
 Now, you can simply use the inference script:
 ```bash
-bash scripts/infer.sh 
+# For inference using a reference WAV file
+bash scripts/infer_wav_ref.sh
 ```
+or
+```bash
+# For inference using a text prompt reference
+bash scripts/infer_prompt_ref.sh
+```
+
 Example files of lrc and reference audio can be found in `infer/example`.
 
 You can use [the tools](https://huggingface.co/spaces/ASLP-lab/DiffRhythm) we provide on huggingface to generate the lrc
