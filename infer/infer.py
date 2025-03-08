@@ -82,7 +82,6 @@ if __name__ == "__main__":
     parser.add_argument(
         "--lrc-path",
         type=str,
-        default="infer/example/eg.lrc",
         help="lyrics of target song",
     )  # lyrics of target song
     parser.add_argument(
@@ -139,8 +138,11 @@ if __name__ == "__main__":
 
     cfm, tokenizer, muq, vae = prepare_model(device)
 
-    with open(args.lrc_path, "r") as f:
-        lrc = f.read()
+    if args.lrc_path:
+        with open(args.lrc_path, "r") as f:
+            lrc = f.read()
+    else:
+        lrc = ""
     lrc_prompt, start_time = get_lrc_token(lrc, tokenizer, device)
 
     if args.ref_audio_path:
