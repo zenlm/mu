@@ -38,7 +38,7 @@ DiffRhythm (Chinese: 谛韵, Dì Yùn) is the ***first*** open-sourced diffusion
     "Arctic research station, theremin auroras dancing with geomagnetic storms"  
     ```
 
-    ✨ Special Thanks to community contributor @Jourdelune for implementing these features via #PR2!
+    ✨ Special Thanks to community contributor @Jourdelune for implementing these features via #PR29!
 
     **Full Release Notes**: See [src/update_alert.md](src/update_alert.md) for  details, demos, and roadmap.
 
