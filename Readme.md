@@ -25,7 +25,7 @@ DiffRhythm (Chinese: 谛韵, Dì Yùn) is the ***first*** open-sourced diffusion
 
 * 📌 Join Us on Discord! [![Discord](https://dcbadge.limes.pink/api/server/https://discord.gg/q4T7nTdd)](https://discord.gg/q4T7nTdd)
 
-* **2024.3.9 🔥** **DiffRhythm Update: Text-to-Music and Pure Music Generation!**  
+* **2025.3.9 🔥** **DiffRhythm Update: Text-to-Music and Pure Music Generation!**  
 
     We're excited to announce two groundbreaking features now live in our open-source music model:  
 
