@@ -25,6 +25,25 @@ DiffRhythm (Chinese: 谛韵, Dì Yùn) is the ***first*** open-sourced diffusion
 
 * 📌 Join Us on Discord! [![Discord](https://dcbadge.limes.pink/api/server/https://discord.gg/q4T7nTdd)](https://discord.gg/q4T7nTdd)
 
+* **2024.3.9 🔥** **DiffRhythm Update: Text-to-Music and Pure Music Generation!**  
+
+    We're excited to announce two groundbreaking features now live in our open-source music model:  
+
+    🎯 **Text-Based Style Prompts**  
+    Describe styles/scenes in words (e.g., `Jazzy Nightclub Vibe`, `Pop Emotional Piano` or `Indie folk ballad, coming-of-age themes, acoustic guitar picking with harmonica interludes`) — *no audio reference needed!*  
+
+    🎧 **Instrumental Mode**  
+    Generate pure music with wild prompts like:  
+    ```bash  
+    "Arctic research station, theremin auroras dancing with geomagnetic storms"  
+    ```
+
+    ✨ Special Thanks to community contributor @Jourdelune for implementing these features via #PR2!
+
+    **Full Release Notes**: See [src/update_alert.md](src/update_alert.md) for  details, demos, and roadmap.
+
+    Break the rules. Make music that shouldn't exist.
+
 * **2025.3.7 🔥** **DiffRhythm** is now officially licensed under the **Apache 2.0 License**! 🎉 As the first diffusion-based music generation model, DiffRhythm opens up exciting new possibilities for AI-driven creativity in music. Whether you're a researcher, developer, or music enthusiast, we invite you to explore, innovate, and build upon this foundation. 
 
 * **2025.3.6 🔥** The local deployment guide is now available.
