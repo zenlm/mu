@@ -25,6 +25,8 @@ DiffRhythm (Chinese: 谛韵, Dì Yùn) is the ***first*** open-sourced diffusion
 
 * 📌 Join Us on Discord! [![Discord](https://dcbadge.limes.pink/api/server/https://discord.gg/q4T7nTdd)](https://discord.gg/q4T7nTdd)
 
+* **2025.3.11 💻** DiffRhythm can now run on MacOS! 
+
 * **2025.3.9 🔥** **DiffRhythm Update: Text-to-Music and Pure Music Generation!**  
 
     We're excited to announce two groundbreaking features now live in our open-source music model:  
@@ -83,6 +85,8 @@ cd DiffRhythm
 sudo apt-get install espeak-ng
 # For RedHat-like distribution (e.g. CentOS, Fedora, etc.) 
 sudo yum install espeak-ng
+# For MacOS
+brew install espeak-ng
 # For Windows
 # Please visit https://github.com/espeak-ng/espeak-ng/releases to download .msi installer
 

@@ -126,9 +126,11 @@ if __name__ == "__main__":
         args.ref_prompt and args.ref_audio_path
     ), "only one of them should be provided"
 
-    assert torch.cuda.is_available(), "only available on gpu"
-
-    device = "cuda"
+    device = "cpu"
+    if torch.cuda.is_available():
+        device = "cuda"
+    elif torch.mps.is_available():
+        device = "mps"
 
     audio_length = args.audio_length
     if audio_length == 95:
