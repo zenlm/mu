@@ -113,9 +113,9 @@ bash scripts/infer_wav_ref.sh
 bash scripts/infer_prompt_ref.sh
 ```
 
-But before running the inference on Windows, make sure you set the user enviroment variables:
-`PHONEMIZER_ESPEAK_LIBRARY` -> `C:\Program Files\eSpeak NG\libespeak-ng.dll`
-`PHONEMIZER_ESPEAK_PATH` -> `C:\Program Files\eSpeak NG`
+But before running the inference on Windows, make sure you set the user enviroment variables:\
+`PHONEMIZER_ESPEAK_LIBRARY` -> `C:\Program Files\eSpeak NG\libespeak-ng.dll`\
+`PHONEMIZER_ESPEAK_PATH` -> `C:\Program Files\eSpeak NG`\
 Change `C:\Program Files\eSpeak NG` to your eSpeak installation directory and reboot your PC to apply changes.
 
 *Installing Japanese voices, mbrola binaries and unpacking an mbrola_ph folder (as described [here](https://github.com/ASLP-lab/DiffRhythm/issues/15) and [here](https://github.com/ASLP-lab/DiffRhythm/issues/22)) are **no longer required** when running on Windows. See https://github.com/ASLP-lab/DiffRhythm/issues/17#issuecomment-2705058729, [this](https://github.com/ASLP-lab/DiffRhythm/commit/2ea9424274df10670ddc613b5d61cc16d13e2b88) and [this commit](https://github.com/ASLP-lab/DiffRhythm/commit/1ad7229e1a774c9a2a0c4888103dd4ea7176aebb).*
