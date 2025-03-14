@@ -24,6 +24,9 @@ import os
 import numpy as np
 from huggingface_hub import hf_hub_download
 
+from sys import path
+path.append(os.getcwd())
+
 from model import DiT, CFM
 
 
