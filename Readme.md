@@ -23,7 +23,7 @@ DiffRhythm (Chinese: 谛韵, Dì Yùn) is the ***first*** open-sourced diffusion
 
 ## News and Updates
 
-* 📌 Join Us on Discord! [![Discord](https://dcbadge.limes.pink/api/server/https://discord.gg/q4T7nTdd)](https://discord.gg/q4T7nTdd)
+* 📌 Join Us on Discord! [![Discord](https://dcbadge.limes.pink/api/server/https://discord.gg/vUD4zgTpJa)](https://discord.gg/vUD4zgTpJa)
 
 * **2025.3.11 💻** DiffRhythm can now run on MacOS! 
 
