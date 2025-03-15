@@ -33,7 +33,7 @@ DiffRhythm (Chinese: 谛韵, Dì Yùn) is the ***first*** open-sourced diffusion
     ```python  
     # Future experimental branches  
     model.generate(  
-        duration=random.randint(95, 285),  # Dynamic length control?  
+        duration=random.randint(95, 285),   # Dynamic length control?  
         vocals_only=True,                   # Pure acapella mode?  
         continue_existing=True              # Infinite song extension?  
     )
@@ -69,10 +69,10 @@ DiffRhythm (Chinese: 谛韵, Dì Yùn) is the ***first*** open-sourced diffusion
 * **2025.3.4 🔥** We released the [DiffRhythm paper](https://arxiv.org/abs/2503.01183) and [Huggingface Space demo](https://huggingface.co/spaces/ASLP-lab/DiffRhythm).
 
 ## TODOs
-- [ ] Release DiffRhythm-full.
+- [x] Release DiffRhythm-full.
 - [ ] Support Colab.
 - [ ] Support Docker.
-- [ ] Release training code.
+- [x] Release training code.
 - [x] Support local deployment.
 - [x] Release paper to Arxiv.
 - [x] Online serving on Hugging Face Space.
@@ -82,7 +82,7 @@ DiffRhythm (Chinese: 谛韵, Dì Yùn) is the ***first*** open-sourced diffusion
 |  Model   | HuggingFace |
 |  ----  | ----  |
 | DiffRhythm-base (1m35s)  | https://huggingface.co/ASLP-lab/DiffRhythm-base |
-| DiffRhythm-full (4m45s)  | Coming soon... |
+| DiffRhythm-full (4m45s)  | https://huggingface.co/ASLP-lab/DiffRhythm-full |
 | DiffRhythm-vae  | https://huggingface.co/ASLP-lab/DiffRhythm-vae |
 
 ## Inference
