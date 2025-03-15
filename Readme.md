@@ -25,8 +25,6 @@ DiffRhythm (Chinese: 谛韵, Dì Yùn) is the ***first*** open-sourced diffusion
 
 * 📌 Join Us on Discord! [![Discord](https://dcbadge.limes.pink/api/server/https://discord.gg/vUD4zgTpJa)](https://discord.gg/vUD4zgTpJa)
 
-* **2025.3.11 💻** DiffRhythm can now run on MacOS! 
-
 * **2025.3.15 🔥** **DiffRhythm-full Official Release: Complete Music Generation!**  
 
     The wait is over - **285s full-length music generation** is now live!  
@@ -42,6 +40,8 @@ DiffRhythm (Chinese: 谛韵, Dì Yùn) is the ***first*** open-sourced diffusion
     ```
 
     *The symphony evolves. What impossible music will you compose next?*
+
+* **2025.3.11 💻** DiffRhythm can now run on MacOS! 
 
 * **2025.3.9 🔥** **DiffRhythm Update: Text-to-Music and Pure Music Generation!**  
 
