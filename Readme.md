@@ -29,16 +29,6 @@ DiffRhythm (Chinese: 谛韵, Dì Yùn) is the ***first*** open-sourced diffusion
 
     The wait is over - **285s full-length music generation** is now live!  
 
-    **Now we ask: *What if...*** 
-    ```python  
-    # Future experimental branches  
-    model.generate(  
-        duration=random.randint(95, 285),   # Dynamic length control?  
-        vocals_only=True,                   # Pure acapella mode?  
-        continue_existing=True              # Infinite song extension?  
-    )
-    ```
-
     *The symphony evolves. What impossible music will you compose next?*
 
 * **2025.3.11 💻** DiffRhythm can now run on MacOS! 
@@ -69,9 +59,12 @@ DiffRhythm (Chinese: 谛韵, Dì Yùn) is the ***first*** open-sourced diffusion
 * **2025.3.4 🔥** We released the [DiffRhythm paper](https://arxiv.org/abs/2503.01183) and [Huggingface Space demo](https://huggingface.co/spaces/ASLP-lab/DiffRhythm).
 
 ## TODOs
-- [x] Release DiffRhythm-full.
+- [ ] Dynamic length control
+- [ ] Vocals only
+- [ ] Song extension
 - [ ] Support Colab.
 - [ ] Support Docker.
+- [x] Release DiffRhythm-full.
 - [x] Release training code.
 - [x] Support local deployment.
 - [x] Release paper to Arxiv.
