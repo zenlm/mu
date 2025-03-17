@@ -9,9 +9,9 @@ if [[ "$OSTYPE" =~ ^darwin ]]; then
 fi
 
 python3 infer/infer.py \
-    --lrc-path infer/example/eg_cn.lrc \
+    --lrc-path infer/example/eg_en_full.lrc \
     --ref-prompt "classical genres, hopeful mood, piano." \
-    --audio-length 95 \
-    --repo_id ASLP-lab/DiffRhythm-base \
+    --audio-length 285 \
+    --repo_id ASLP-lab/DiffRhythm-full \
     --output-dir infer/example/output \
     --chunked

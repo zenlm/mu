@@ -63,7 +63,8 @@ class CFM(nn.Module):
         lrc_drop_prob=0.1,
         num_channels=None,
         frac_lengths_mask: tuple[float, float] = (0.7, 1.0),
-        vocab_char_map: dict[str:int] | None = None
+        vocab_char_map: dict[str:int] | None = None,
+        max_frames=2048
     ):
         super().__init__()
 
@@ -92,6 +93,8 @@ class CFM(nn.Module):
 
         # vocab map for tokenization
         self.vocab_char_map = vocab_char_map
+        
+        self.max_frames = max_frames
 
     @property
     def device(self):
@@ -112,7 +115,7 @@ class CFM(nn.Module):
         cfg_strength=4.0,
         sway_sampling_coef=None,
         seed: int | None = None,
-        max_duration=4096,
+        max_duration=6144,
         vocoder: Callable[[float["b d n"]], float["b nw"]] | None = None,  # noqa: F722
         no_ref_audio=False,
         duplicate_test=False,
@@ -251,7 +254,7 @@ class CFM(nn.Module):
 
         # get a random span to mask out for training conditionally
         frac_lengths = torch.zeros((batch,), device=self.device).float().uniform_(*self.frac_lengths_mask)
-        rand_span_mask = mask_from_frac_lengths(lens, frac_lengths)
+        rand_span_mask = mask_from_frac_lengths(lens, frac_lengths, self.max_frames)
 
         if exists(mask):
             rand_span_mask = mask

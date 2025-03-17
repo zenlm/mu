@@ -105,7 +105,7 @@ if __name__ == "__main__":
         "--audio-length",
         type=int,
         default=95,
-        choices=[95],
+        choices=[95, 285],
         help="length of generated song",
     )  # length of target song
     parser.add_argument(
@@ -116,7 +116,7 @@ if __name__ == "__main__":
         type=str,
         default="infer/example/output",
         help="output directory fo generated song",
-    )  # output directory fo target song
+    )  # output directory of target song
     args = parser.parse_args()
 
     assert (
@@ -138,14 +138,14 @@ if __name__ == "__main__":
     elif audio_length == 285:  # current not available
         max_frames = 6144
 
-    cfm, tokenizer, muq, vae = prepare_model(device)
+    cfm, tokenizer, muq, vae = prepare_model(max_frames, device, repo_id=args.repo_id)
 
     if args.lrc_path:
         with open(args.lrc_path, "r", encoding='utf-8') as f:
             lrc = f.read()
     else:
         lrc = ""
-    lrc_prompt, start_time = get_lrc_token(lrc, tokenizer, device)
+    lrc_prompt, start_time = get_lrc_token(max_frames, lrc, tokenizer, device)
 
     if args.ref_audio_path:
         style_prompt = get_style_prompt(muq, args.ref_audio_path)
