@@ -6,7 +6,7 @@
 from g2p.g2p import cleaners
 from tokenizers import Tokenizer
 from g2p.g2p.text_tokenizers import TextTokenizer
-import LangSegment
+from thirdparty.LangSegment import LangSegment
 import json
 import re
 

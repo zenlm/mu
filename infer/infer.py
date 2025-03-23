@@ -169,7 +169,7 @@ if __name__ == "__main__":
         chunked=args.chunked,
     )
     e_t = time.time() - s_t
-    print(f"inference cost {e_t} seconds")
+    print(f"inference cost {e_t:.2f} seconds")
 
     output_dir = args.output_dir
     os.makedirs(output_dir, exist_ok=True)
