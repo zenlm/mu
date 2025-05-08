@@ -39,12 +39,25 @@ from model.utils import (
     mask_from_frac_lengths,
 )
 
-def custom_mask_from_start_end_indices(start: int["b"], end: int["b"], device, max_seq_len):  # noqa: F722 F821
+def custom_mask_from_start_end_indices(
+    seq_len: int["b"],  # noqa: F821
+    latent_pred_segments,
+    device,
+    max_seq_len
+):
     max_seq_len = max_seq_len
     seq = torch.arange(max_seq_len, device=device).long()
-    start_mask = seq[None, :] >= start[:, None]
-    end_mask = seq[None, :] < end[:, None]
-    return start_mask & end_mask
+
+    res_mask = torch.zeros(max_seq_len, device=device, dtype=torch.bool)
+    
+    for start, end in latent_pred_segments:
+        start = start.unsqueeze(0)
+        end = end.unsqueeze(0)
+        start_mask = seq[None, :] >= start[:, None]
+        end_mask = seq[None, :] < end[:, None]
+        res_mask = res_mask | (start_mask & end_mask)
+    
+    return res_mask
 
 class CFM(nn.Module):
     def __init__(
@@ -122,8 +135,8 @@ class CFM(nn.Module):
         t_inter=0.1,
         edit_mask=None,
         start_time=None,
-        latent_pred_start_frame=0,
-        latent_pred_end_frame=2048,
+        latent_pred_segments=None,
+        batch_infer_num=1
     ):
         self.eval()
 
@@ -156,16 +169,13 @@ class CFM(nn.Module):
         if edit_mask is not None:
             cond_mask = cond_mask & edit_mask
 
-        latent_pred_start_frame = torch.tensor([latent_pred_start_frame]).to(cond.device)
-        latent_pred_end_frame = duration
-        latent_pred_end_frame = torch.tensor([latent_pred_end_frame]).to(cond.device)
-        fixed_span_mask = custom_mask_from_start_end_indices(latent_pred_start_frame, latent_pred_end_frame, device=cond.device, max_seq_len=duration)
-
+        latent_pred_segments = torch.tensor(latent_pred_segments).to(cond.device)
+        fixed_span_mask = custom_mask_from_start_end_indices(cond_seq_len, latent_pred_segments, device=cond.device, max_seq_len=duration)
         fixed_span_mask = fixed_span_mask.unsqueeze(-1)
         step_cond = torch.where(fixed_span_mask, torch.zeros_like(cond), cond)
 
         if isinstance(duration, int):
-            duration = torch.full((batch,), duration, device=device, dtype=torch.long)
+            duration = torch.full((batch_infer_num,), duration, device=device, dtype=torch.long)
 
         duration = duration.clamp(max=max_duration)
         max_duration = duration.amax()
@@ -183,18 +193,26 @@ class CFM(nn.Module):
         if no_ref_audio:
             cond = torch.zeros_like(cond)
 
+        cond = cond.repeat(batch_infer_num, 1, 1)
+        step_cond = step_cond.repeat(batch_infer_num, 1, 1)
+        text = text.repeat(batch_infer_num, 1)
+        style_prompt = style_prompt.repeat(batch_infer_num, 1)
+        negative_style_prompt = negative_style_prompt.repeat(batch_infer_num, 1)
+        start_time = start_time.repeat(batch_infer_num)
+        fixed_span_mask = fixed_span_mask.repeat(batch_infer_num, 1, 1)
+
         def fn(t, x):
             # predict flow
             pred = self.transformer(
-                x=x, cond=step_cond, text=text, time=t, mask=mask, drop_audio_cond=False, drop_text=False, drop_prompt=False,
-                style_prompt=style_prompt, style_prompt_lens=style_prompt_lens, start_time=start_time
+                x=x, cond=step_cond, text=text, time=t, drop_audio_cond=False, drop_text=False, drop_prompt=False,
+                style_prompt=style_prompt, start_time=start_time
             )
             if cfg_strength < 1e-5:
                 return pred
 
             null_pred = self.transformer(
-                x=x, cond=step_cond, text=text, time=t, mask=mask, drop_audio_cond=True, drop_text=True, drop_prompt=False,
-                style_prompt=negative_style_prompt, style_prompt_lens=style_prompt_lens, start_time=start_time
+                x=x, cond=step_cond, text=text, time=t, drop_audio_cond=True, drop_text=True, drop_prompt=False,
+                style_prompt=negative_style_prompt, start_time=start_time
             )
             return pred + (pred - null_pred) * cfg_strength
 
@@ -230,6 +248,7 @@ class CFM(nn.Module):
             out = out.permute(0, 2, 1)
             out = vocoder(out)
 
+        out = torch.chunk(out, batch_infer_num, dim=0)
         return out, trajectory
 
     def forward(
@@ -287,7 +306,7 @@ class CFM(nn.Module):
         # adding mask will use more memory, thus also need to adjust batchsampler with scaled down threshold for long sequences
         pred = self.transformer(
             x=φ, cond=cond, text=text, time=time, drop_audio_cond=drop_audio_cond, drop_text=drop_text, drop_prompt=drop_prompt,
-            style_prompt=style_prompt, style_prompt_lens=style_prompt_lens, grad_ckpt=grad_ckpt, start_time=start_time
+            style_prompt=style_prompt, start_time=start_time
         )
 
         # flow matching loss

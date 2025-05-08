@@ -7,3 +7,4 @@ pretrained/
 *.wav
 ckpt
 wandb
+*.html

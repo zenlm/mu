@@ -35,6 +35,7 @@ from model.modules import (
     AdaLayerNormZero_Final,
     precompute_freqs_cis,
     get_pos_embed_indices,
+    _prepare_decoder_attention_mask,
 )
 
 # Text embedding
@@ -85,7 +86,6 @@ class InputEmbedding(nn.Module):
     def forward(self, x: float["b n d"], cond: float["b n d"], text_embed: float["b n d"], style_emb, time_emb, drop_audio_cond=False):  # noqa: F722
         if drop_audio_cond:  # cfg for cond audio
             cond = torch.zeros_like(cond)
-
         style_emb = style_emb.unsqueeze(1).repeat(1, x.shape[1], 1)
         time_emb = time_emb.unsqueeze(1).repeat(1, x.shape[1], 1)
         x = self.proj(torch.cat((x, cond, text_embed, style_emb, time_emb), dim=-1))
@@ -169,9 +169,6 @@ class DiT(nn.Module):
         drop_text,  # cfg for text
         drop_prompt=False,
         style_prompt=None, # [b d t]
-        style_prompt_lens=None,
-        mask: bool["b n"] | None = None,  # noqa: F722
-        grad_ckpt=False,
         start_time=None,
     ):
 
@@ -198,9 +195,20 @@ class DiT(nn.Module):
         pos_ids = torch.arange(x.shape[1], device=x.device)
         pos_ids = pos_ids.unsqueeze(0).repeat(x.shape[0], 1)
         rotary_embed = self.rotary_emb(x, pos_ids)
+        
+        attention_mask = torch.ones(
+            (batch, seq_len),
+            dtype=torch.bool,
+            device=x.device,
+        )
+        attention_mask = _prepare_decoder_attention_mask(
+            attention_mask,
+            (batch, seq_len),
+            x,
+        )
 
         for i, block in enumerate(self.transformer_blocks):
-            x, *_ = block(x, position_embeddings=rotary_embed)
+            x, *_ = block(x, attention_mask=attention_mask, position_embeddings=rotary_embed)
             if i < self.depth // 2:
                 x = x + self.text_fusion_linears[i](text_embed)
 
