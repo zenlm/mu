@@ -27,7 +27,7 @@ DiffRhythm (Chinese: 谛韵, Dì Yùn) is the ***first*** open-sourced diffusion
 
 * **2025.5.9 🔥** **DiffRhythm-v1.2 Official Launch!**
 
-   Version 1.2 largely resolves repetition and omission issues significantly improves audio quality and arrangement with richer instrumentation, and enables song editing and continuation with advanced understanding of music structure and style.
+   Version 1.2 largely resolves repetition and omission issues, significantly improves audio quality and arrangement with richer instrumentation, and enables song editing and continuation with advanced understanding of music structure and style.
 
 * **2025.3.15 🔥** **DiffRhythm-full Official Release: Complete Music Generation!**  
 
@@ -79,9 +79,9 @@ DiffRhythm (Chinese: 谛韵, Dì Yùn) is the ***first*** open-sourced diffusion
 
 |  Model   | HuggingFace |
 |  ----  | ----  |
+| ✨ **DiffRhythm-v1.2** (1m35s) — *New!*  | https://huggingface.co/ASLP-lab/DiffRhythm-1_2 |
 | DiffRhythm-base (1m35s)  | https://huggingface.co/ASLP-lab/DiffRhythm-base |
 | DiffRhythm-full (4m45s)  | https://huggingface.co/ASLP-lab/DiffRhythm-full |
-| DiffRhythm-v1.2 (1m35s)  | https://huggingface.co/ASLP-lab/DiffRhythm-1_2 |
 | DiffRhythm-vae  | https://huggingface.co/ASLP-lab/DiffRhythm-vae |
 
 ## Docker installation
