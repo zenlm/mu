@@ -215,5 +215,5 @@ if __name__ == "__main__":
     output_dir = args.output_dir
     os.makedirs(output_dir, exist_ok=True)
 
-    output_path = os.path.join(output_dir, "output.mp3")
-    torchaudio.save(output_path, generated_song, format='mp3', sample_rate=44100)
+    output_path = os.path.join(output_dir, "output.wav")
+    torchaudio.save(output_path, generated_song, sample_rate=44100)
