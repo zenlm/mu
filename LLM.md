@@ -1,7 +1,9 @@
-# mu — AI Assistant Context
+# mu
 
-# Mu
+Full-length song generation (up to 4:45) with latent diffusion on a Diffusion Transformer backbone, with optional lyrics-conditioned alignment and an audio codec for reconstruction. Part of the Zen LM ecosystem (Hanzo AI).
 
-Full-length song generation with latent diffusion. Part of the Zen LM ecosystem.
+Layout: `model/` (DiT + codec), `train/`, `infer/`, `g2p/` (grapheme-to-phoneme for lyrics), `config/`, `dataset/`.
 
-[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+- Setup: `pip install -r requirements.txt`
+
+Full docs: README.md
