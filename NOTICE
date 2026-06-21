@@ -1,0 +1,10 @@
+Mu
+Copyright (c) 2025 Zen LM, Inc.
+
+This product includes software from DiffRhythm (https://github.com/ASLP-lab/DiffRhythm), licensed under Apache License 2.0:
+
+    Copyright (c) 2025 ASLP@NPU (Audio, Speech and Language Processing Group, Northwestern Polytechnical University) and the DiffRhythm Authors
+
+This product also includes g2p code from Amphion (https://github.com/open-mmlab/Amphion), licensed under the MIT License:
+
+    Copyright (c) 2024 Amphion

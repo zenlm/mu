@@ -186,7 +186,9 @@
       same "printed page" as the copyright notice for easier
       identification within third-party archives.
 
-   Copyright [yyyy] [name of copyright owner]
+   Copyright (c) 2025 ASLP@NPU (Audio, Speech and Language Processing Group,
+   Northwestern Polytechnical University) and the DiffRhythm Authors
+   Copyright (c) 2025 Zen LM
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
