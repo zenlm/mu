@@ -1,3 +1,5 @@
+<p align="center"><img src=".github/hero.svg" alt="mu" width="880"></p>
+
 # Mu
 
 Full-length song generation with latent diffusion. Part of the Zen LM ecosystem.
